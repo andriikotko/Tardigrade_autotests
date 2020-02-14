@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -27,16 +28,90 @@ public class OverviewReportFunctionalTests {
     @Parameters("browser")
     public void setUp( @Optional("Chrome") String browser) throws Exception {
 
-        SystemParams systemParams = new SystemParams(driver);
-        driver = systemParams.selecting(browser);
+        String OS = System.getProperty("os.name");
+        String chosingOS = "";
+        if (OS.equals("Linux")) {
+            switch (browser) {
+                case "Firefox":
+                    chosingOS = SystemParams.GECKODRIVERPATH;
+                    System.setProperty("webdriver.gecko.driver", chosingOS);
+                    driver = new FirefoxDriver();
+                    break;
+                case "Chrome":
+                    chosingOS = SystemParams.CHROMEDRIVERPATH;
+                    System.setProperty("webdriver.chrome.driver", chosingOS);
+                    driver = new ChromeDriver();
+                    break;
+                case "Opera":
+                    chosingOS = SystemParams.OPERADRIVERPATH;
+                    System.setProperty("webdriver.opera.driver", chosingOS);
+                    driver = new OperaDriver();
+                    break;
+
+                default:
+                    chosingOS = "";
+            }
+        } else if (OS.substring(0, 4).equals("Windo")) {
+            switch (browser) {
+                case "Firefox":
+                    chosingOS = SystemParams.GECKODRIVERPATHWIN;
+                    System.setProperty("webdriver.gecko.driver", chosingOS);
+                    driver = new FirefoxDriver();
+                    break;
+                case "Chrome":
+                    chosingOS = SystemParams.CHROMEDRIVERPATHWIN;
+                    System.setProperty("webdriver.chrome.driver", chosingOS);
+                    driver = new ChromeDriver();
+                    break;
+                case "Opera":
+                    chosingOS = SystemParams.OPERADRIVERPATHWIN;
+                    System.setProperty("webdriver.opera.driver", chosingOS);
+                    driver = new OperaDriver();
+                    break;
+                default:
+                    chosingOS = "";
+            }
+        } else if (OS.substring(0, 3).equals("Mac")) {
+            switch (browser) {
+                case "Firefox":
+                    chosingOS = SystemParams.GECKODRIVERPATH;
+                    System.setProperty("webdriver.gecko.driver", chosingOS);
+                    driver = new FirefoxDriver();
+                    break;
+                case "Chrome":
+                    chosingOS = SystemParams.CHROMEDRIVERPATHMAC;
+                    System.setProperty("webdriver.chrome.driver", chosingOS);
+                    driver = new ChromeDriver();
+                    break;
+                case "Opera":
+                    chosingOS = SystemParams.OPERADRIVERPATHWIN;
+                    System.setProperty("webdriver.opera.driver", chosingOS);
+                    driver = new OperaDriver();
+                    break;
+                case "Safari":
+                    chosingOS = SystemParams.SAFARIDRIVERPATHMAC;
+                    System.setProperty("webdriver.safari.driver", chosingOS);
+                    driver = new SafariDriver();
+                    break;
+                default:
+                    chosingOS = "";
+            }
+
+        } else {
+            //If no os passed throw exception
+            throw new Exception("os is not correct");
+        }
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get(HomePage.HOMEURL);
 
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         homePage.loginToAccountWithValidCreds(homePage.ACCOUNT, homePage.PASSWORD);
         homePage.overview_tab.click();
 
+
         OverviewTab_Details overviewTabDetails = PageFactory.initElements(driver, OverviewTab_Details.class);
         overviewTabDetails.reportTab.click();
-
 
     }
 

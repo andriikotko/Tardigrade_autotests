@@ -33,6 +33,7 @@ public class BaseTest {
 
         HomePage.toggleAccount_DropDown.click();
         HomePage.button_LogOut.click();
+        Thread.sleep(1000);
         Assert.assertEquals(driver.getCurrentUrl(), pages.HomePage.HOMEURL);
 
     }

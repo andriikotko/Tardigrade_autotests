@@ -108,7 +108,7 @@ public class SystemParams {
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().window().setSize(new Dimension(HomePage.Width, HomePage.Height));
         driver.get(HomePage.HOMEURL);
-        System.out.println(driver);
+
         return driver;
     }
 

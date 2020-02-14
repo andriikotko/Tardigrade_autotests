@@ -31,35 +31,30 @@ public class CreateNewProjectTest {
         SystemParams systemParams = new SystemParams(driver);
         driver = systemParams.selecting(browser);
 
-        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        homePage.loginToAccountWithValidCreds(homePage.ACCOUNT, homePage.PASSWORD);
+
     }
 
     @Test
     public void CreateNewProjectTest() throws InterruptedException {
 
         // This is to Instantiate Home Page and LogIn Page class
-        HomePage HomePage = PageFactory.initElements(driver, HomePage.class);
+        HomePage homePage = PageFactory.initElements(driver, HomePage.class);
         LoginPage LoginPage = PageFactory.initElements(driver, pages.LoginPage.class);
         NewProjectFlow newProjectFlow = PageFactory.initElements(driver, NewProjectFlow.class);
         // Once both classes Initialised, use their Web Element Objects
-        LoginPage.userNameField.sendKeys(pages.HomePage.ACCOUNT);
-        LoginPage.passwordField.sendKeys(pages.HomePage.PASSWORD);
-        LoginPage.btn_Login.click();
 
-        Thread.sleep(5000);
-
-        HomePage.btn_New_Project.click();
+        homePage.loginToAccountWithValidCreds(homePage.ACCOUNT, homePage.PASSWORD);
+        homePage.btn_New_Project.click();
         newProjectFlow.project_Name_input.sendKeys("TestProject");
         newProjectFlow.project_Description_input.sendKeys("TestDescription");
         newProjectFlow.create_Project_Button.click();
         // Thread.sleep(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(HomePage.Error_Notification));
-        Assert.assertTrue(HomePage.Error_Notification.isEnabled());
+        wait.until(ExpectedConditions.visibilityOf(homePage.Error_Notification));
+        Assert.assertTrue(homePage.Error_Notification.isEnabled());
         //    Assert.assertTrue(HomePage.Error_Notification.getText().endsWith("Project created successfully!"));
-        Assert.assertEquals(HomePage.Error_Notification.getText(), "Project created successfully!");
+        Assert.assertEquals(homePage.Error_Notification.getText(), "Project created successfully!");
         Thread.sleep(1000);
 
     }
@@ -74,7 +69,7 @@ public class CreateNewProjectTest {
         loginPage.passwordField.sendKeys(pages.HomePage.PASSWORD);
         loginPage.btn_Login.click();
         Thread.sleep(4500);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
+
 
         if (homePage.currentProjectName.getText().contentEquals("You have no projects")) {
             homePage.btn_New_Project.click();
