@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.RegistrationPage;
 import pages.SystemParams;
 
@@ -23,10 +24,9 @@ public class RegistrationPageElementsVisibilityTest {
         SystemParams systemParams = new SystemParams(driver);
         driver = systemParams.selecting(browser);
 
-        driver.get(HomePage.REGISTERURL);
-        RegistrationPage registrationPage = PageFactory.initElements(driver, RegistrationPage.class);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.visibilityOf(registrationPage.logoStorj));
+        LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
+        loginPage.btnCreateAccount.click();
+
     }
 
     @Test

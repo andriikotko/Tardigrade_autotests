@@ -39,10 +39,10 @@ public class RegistrationPageTextsTest {
 //        Assert.assertTrue(registrationPage.nicknameInput.getAttribute("placeholder").endsWith("Enter Nickname"));
         Assert.assertTrue(registrationPage.emailInput.getAttribute("placeholder").endsWith("Enter Email"));
         Assert.assertTrue(registrationPage.passwordInput.getAttribute("placeholder").endsWith("Enter Password"));
-        Assert.assertTrue(registrationPage.repeatPasswordInput.getAttribute("placeholder").endsWith("Confirm Password"));
+        Assert.assertTrue(registrationPage.repeatPasswordInput.getAttribute("placeholder").endsWith("Repeat Password"));
         Assert.assertEquals(registrationPage.createAccountButton.getText(),"Create Account");
         Assert.assertEquals(registrationPage.loginButton.getText(),"Login");
-        Assert.assertEquals(registrationPage.signUpHeader.getText(),"Sign Up to Storj");
+        Assert.assertEquals(registrationPage.signUpHeader.getText(),"Sign Up to Tardigrade");
         Assert.assertEquals(registrationPage.fullNameHeader.getText(), "Full Name");
 //        Assert.assertEquals(registrationPage.nicknameHeader.getText(),"Nickname");
         Assert.assertEquals(registrationPage.emailHeader.getText(),"Email");

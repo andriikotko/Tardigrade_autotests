@@ -9,6 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import pages.HomePage;
+import pages.LoginPage;
 import pages.RegistrationPage;
 import pages.SystemParams;
 
@@ -21,6 +22,8 @@ public class RegistrationNegativeTests {
     public void setUp( @Optional("Chrome") String browser) throws Exception {
         SystemParams systemParams = new SystemParams(driver);
         driver = systemParams.selecting(browser);
+        LoginPage loginPage = PageFactory.initElements(driver,LoginPage.class);
+        loginPage.btnCreateAccount.click();
 
     }
     @AfterMethod
