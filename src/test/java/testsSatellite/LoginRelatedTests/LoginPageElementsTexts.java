@@ -29,7 +29,7 @@ public class LoginPageElementsTexts {
     @Test
     public void elemntsTextsTest(){
         LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
-        Assert.assertEquals(loginPage.loginFormHeader.getText(), "Login to Storj");
+        Assert.assertEquals(loginPage.loginFormHeader.getText(), "Login to Tardigrade");
         Assert.assertEquals(loginPage.footerLogoText.getText(), "Storj Labs Inc 2019.");
         Assert.assertEquals(loginPage.btnCreateAccount.getText(),"Create Account");
         Assert.assertEquals(loginPage.btn_Login.getText(), "Log In");

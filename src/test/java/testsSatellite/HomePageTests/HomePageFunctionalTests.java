@@ -76,6 +76,7 @@ public class HomePageFunctionalTests {
 
         homePage.toggleAccount_DropDown.click();
         homePage.button_LogOut.click();
+        Thread.sleep(1000);
 
         Assert.assertEquals(driver.getCurrentUrl(), "http://localhost:" + (homePage.satellitePort()) + "/login");
     }
@@ -101,14 +102,14 @@ public class HomePageFunctionalTests {
         homePage.docs_Tab.click();
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
-        Assert.assertEquals(driver.getCurrentUrl(), "https://documentation.tardigrade.io/setup/buckets-objects");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://documentation.tardigrade.io/before-you-begin/considerations");
         Assert.assertEquals(driver.findElement(By.xpath("//*[@id=\"__GITBOOK__ROOT__CLIENT__\"]/div[1]/div[2]/div/div[1]/div[3]/div/div[1]/div[1]/div[1]/div/div/div[1]/div[1]/h1/span")).getText(), "Buckets & Objects");
     }
 
     @Test
     public void referenceToSupport() {
         HomePage homePage = PageFactory.initElements(driver, HomePage.class);
-        Assert.assertTrue(homePage.support_Tab.getAttribute("href").startsWith("mailto:support@storj.io"));
+        Assert.assertTrue(homePage.support_Tab.getAttribute("href").startsWith("https://support.tardigrade.io/hc/en-us"));
     }
 
     @Test

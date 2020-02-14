@@ -152,7 +152,7 @@ public class AccountProfileFunctionalTests {
         wait.until(ExpectedConditions.visibilityOf(loginPage.notificationArea));
 
         Assert.assertEquals(loginPage.notificationArea.getText(),"your email or password was incorrect, please try again");
-        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Storj");
+        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Tardigrade");
 
     }
 
@@ -187,7 +187,7 @@ public class AccountProfileFunctionalTests {
         wait.until(ExpectedConditions.visibilityOf(loginPage.notificationArea));
 
         Assert.assertEquals(loginPage.notificationArea.getText(),"your email or password was incorrect, please try again");
-        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Storj");
+        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Tardigrade");
     }
 
     @Test
@@ -216,7 +216,7 @@ public class AccountProfileFunctionalTests {
         wait.until(ExpectedConditions.visibilityOf(loginPage.notificationArea));
 
         Assert.assertEquals(loginPage.notificationArea.getText(),"your email or password was incorrect, please try again");
-        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Storj");
+        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Tardigrade");
 
     }
 
@@ -275,7 +275,7 @@ public class AccountProfileFunctionalTests {
         wait.until(ExpectedConditions.visibilityOf(loginPage.notificationArea));
 
         Assert.assertEquals(loginPage.notificationArea.getText(),"your email or password was incorrect, please try again");
-        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Storj");
+        Assert.assertEquals(loginPage.loginFormHeader.getText(),"Login to Tardigrade");
 
     }
 

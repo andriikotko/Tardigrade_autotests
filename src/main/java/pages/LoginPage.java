@@ -22,7 +22,7 @@ public class LoginPage {
     public WebElement btnCreateAccount;
     @FindBy(how = How.CSS,using = "#app > div > div.login-container__wrapper > div.login-container__header > svg")
     public WebElement storjLogo;
-    @FindBy(how =How.XPATH,using ="//*[@class=\"login-area__navigation-area__nav-link__link\"]")
+    @FindBy(how =How.XPATH,using ="//*[@class=\"login-area__navigation-area__nav-link\"]")
     public WebElement linkForgotPassword;
     @FindBy(how =How.XPATH,using = "//*[@class=\"login-area__info-area__terms\"]")
     public WebElement linkToTermsAndConditions;

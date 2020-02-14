@@ -83,13 +83,13 @@ public class HomePage {
 
 
     ////MAIN TABS
-    @FindBy(how = How.XPATH, using = "//*[@aria-label=\"Overview\"]")
+    @FindBy(how = How.XPATH, using = "(//*[@href=\"/project-overview\"])[2]")
     public WebElement overview_tab;
-    @FindBy(how =How.XPATH, using ="//*[@aria-label=\"Team\"]")
+    @FindBy(how =How.XPATH, using ="//*[@href=\"/project-members\"]")
     public WebElement team_tab;
-    @FindBy(how = How.XPATH, using ="//*[@aria-label=\"API Keys\"]")
+    @FindBy(how = How.XPATH, using ="//*[@href=\"/api-keys\"]")
     public WebElement API_Keys_Tab;
-    @FindBy(how = How.XPATH, using ="//*[@aria-label=\"Buckets\"]")
+    @FindBy(how = How.XPATH, using ="//*[@href=\"/buckets\"]")
     public WebElement buckets;
     @FindBy(how = How.XPATH, using ="//*[@id=\"app\"]/div/div/div[1]/div/a[6]")
     public WebElement docs_Tab;
