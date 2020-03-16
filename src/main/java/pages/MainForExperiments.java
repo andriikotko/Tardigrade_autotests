@@ -14,6 +14,8 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.opera.OperaDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -21,6 +23,7 @@ import pages.NodeDashboard.NodeDashboardPage;
 import pages.Tabs.AccountTab_Billing;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import org.postgresql.jdbc4.Jdbc4Connection;
 import pages.Tabs.AccountTab_PaymentMethods;
@@ -53,22 +56,29 @@ public class MainForExperiments {
 //        JsonPath jsonPath = new JsonPath(String.valueOf(response));
 //        String cardID = jsonPath.get("[0].expMonth");
 //        System.out.println(cardID);
+//
+//
+//        for (int i = 0; i <150 ; i++) {
+//
+//
+//        RestAssured.baseURI = "http://192.168.1.23:8080";
+//        Response response = given().
+//                log().all().
+//                when().get("/solutions").
+//                then().assertThat().statusCode(200).
+//                extract().response();
+//
+//        String responceToString = response.asString();
+//        System.out.println(responceToString);}
+//
+//
+//
 
-
-        for (int i = 0; i <150 ; i++) {
-
-
-        RestAssured.baseURI = "http://192.168.1.23:8080";
-        Response response = given().
-                log().all().
-                when().get("/solutions").
-                then().assertThat().statusCode(200).
-                extract().response();
-
-        String responceToString = response.asString();
-        System.out.println(responceToString);}
-
-
+        DesiredCapabilities cap=DesiredCapabilities.chrome();
+        URL u=new URL("http://localhost:4444/wd/hub");
+        RemoteWebDriver driver=new RemoteWebDriver(u,cap);
+        driver.get("http://google.com");
+        System.out.println(driver.getTitle());
 
 
 

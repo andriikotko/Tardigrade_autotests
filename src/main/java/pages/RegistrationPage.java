@@ -20,7 +20,7 @@ public class RegistrationPage {
     public WebElement passwordInput;
     @FindBy(how = How.XPATH, using = "//*[@id=\"app\"]/div/div[2]/div[2]/div/div[5]/div[1]/input")
     public WebElement repeatPasswordInput;
-    @FindBy(how = How.XPATH, using = "//*[@class = \"checkmark\"]")
+    @FindBy(how = How.XPATH, using = "//*[@class = \"checkmark embedded-checkmark\"]")
     public WebElement termsConditionsCheckbox;
     @FindBy(how = How.XPATH, using = "//*[@class = \"register-area__submit-container__create-button\"]")
     public WebElement createAccountButton;
