@@ -144,7 +144,7 @@ pipeline {
     stages {
         stage('TESTS_UI') {
             steps {
-                mvn verify -Dwebdriver.chrome.driver="./src/main/resources/chromedrivermac"
+                sh 'mvn verify -Dwebdriver.chrome.driver="./src/main/resources/chromedrivermac"'
                 }
             }
 
