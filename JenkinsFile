@@ -140,12 +140,13 @@ pipeline {
           timeout(time: 26, unit: 'MINUTES')
     }
    
-    }
+
     stages {
         stage('TESTS_UI') {
             steps {
                 sh 'mvn verify -Dwebdriver.chrome.driver="./src/main/resources/chromedrivermac"'
                 }
+            }
             }
 
     post {
