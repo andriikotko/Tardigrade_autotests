@@ -139,10 +139,5 @@ pipeline {
             }
        }
 
-    post {
-        always {
-            sh "chmod -R 777 ." // ensure Jenkins agent can delete the working directory
-            deleteDir()
-        }
-    }
+
 }
