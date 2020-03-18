@@ -21,24 +21,16 @@ public class HomePage {
     public static String HOMEURL;
 
     static {
-        try {
-            HOMEURL = "http://localhost:"+ (satellitePort()) +"/login";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        HOMEURL = "https://satellite.qa.storj.io/login";
     }
 
     public static String REGISTERURL;
 
     static {
-        try {
-            REGISTERURL = "http://localhost:"+ (satellitePort()) +"/register";
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        REGISTERURL = "https://satellite.qa.storj.io/register";
     }
 
-    public static String ACCOUNT="test1@g.com";
+    public static String ACCOUNT="andriikotko@gmail.com";
     public static String PASSWORD="123qwe";
     public static String CHROMEDRIVERPATH = "./src/main/resources/chromedriver";
     public static String CHROMEDRIVERPATHWIN = "./src/main/resources/chromedriver.exe";

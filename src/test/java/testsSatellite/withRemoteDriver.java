@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pages.HomePage;
 import pages.LoginPage;
 import pages.RemoteWebDriverCreation;
 
@@ -17,8 +18,7 @@ public class withRemoteDriver {
     public void setUp() throws MalformedURLException, InterruptedException {
         RemoteWebDriverCreation rd = new RemoteWebDriverCreation(driver);
         driver= rd.RemoteChromeDriver();
-        driver.get("http://localhost:10002/login");
-        System.out.println(driver.getTitle());
+        driver.get(HomePage.HOMEURL);
 
     }
     @Test
